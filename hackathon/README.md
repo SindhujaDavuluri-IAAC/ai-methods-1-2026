@@ -16,6 +16,6 @@ The full brief, folders and checklists: [`submissions/README.md`](submissions/RE
 
 **Wednesday in one line:** on Miro, 2 user stories, 1 system diagram and 2–3 sequence diagrams; then an app on Cloudflare with a password that calls your Render API and saves results in D1. Copy [`cloudflare_app/`](docs/cloudflare_app) into `03_app/` of your team repo, next to `02_model_server/`.
 
-**Thursday in one line:** finish the app in `04_final/`: three diagrams (system, user flow, sequence), the three statements, and `PROOFS.md` (database, locked on the server, connected to Render, no secrets in git). Optional: one item from class (user accounts, privacy page, analytics), only if it works. Prepare the 5–8 min live demo.
+**Thursday in one line:** finish the app in `04_final/`: three diagrams (system, user flow, sequence), the three statements, and `PROOFS.md` (database, locked on the server, connected to Render, no secrets in git). The shared password from Wednesday stays required. Optional: one item from class (user accounts, privacy page, analytics), only if it works. Prepare the 5–8 min live demo.
 
 Impulse talks: [`docs/IMPULSE_TALKS.md`](docs/IMPULSE_TALKS.md).

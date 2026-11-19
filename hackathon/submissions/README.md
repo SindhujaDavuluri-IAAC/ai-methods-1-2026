@@ -301,7 +301,7 @@ Finish the app and explain it. Today you do **not** start new features that you 
    - **What is clear:** what works and what you understand well.
    - **What is still unclear:** what you do not understand, or what you did not test.
    - **What you would do next:** the next three steps if the project continued.
-4. **The final README** with: the use case, the live URLs (app, model server, model), the diagrams, the three statements, limitations.
+4. **The final README** (`04_final/README.md`; the root `README.md` links to it) with: the use case, the live URLs (app, model server, model), the diagrams, the three statements, limitations.
 
 ⚠️ **Write the three statements yourselves.** We ask about them in the finals. Be honest: a clear "we do not know yet" is worth more than a vague claim.
 
@@ -312,17 +312,17 @@ One file. For each proof, add a screenshot, or a command and its output.
 | # | Proof | What you show |
 |---|---|---|
 | 1 | **A database** | `wrangler d1 execute <DB> --remote --command "SELECT name FROM sqlite_master"` and its output |
-| 2 | **Locked on the server** | `curl -i <app-url>/api/<route>` without login returns **401**, not your data |
-| 3 | **Connected to Render** | One live result in the app, and the `MODEL_URL` line from your wrangler config |
+| 2 | **Locked on the server** | `curl -i <app-url>/api/<route>` without the password or login returns **401** ("not allowed"), not your data. The shared password from Wednesday stays required for everyone. |
+| 3 | **Connected to Render** | A screenshot of one live result in the app, and the `MODEL_URL` line copied from your `wrangler.toml` or `wrangler.jsonc` |
 | 4 | **No secrets in git** | `.dev.vars` is in `.gitignore`, and your AI tool's answer to: "Check my repo and my Cloudflare account for secrets that are in code or in the git history." |
 | 5 | **Login works** *(only if you added user accounts)* | Screenshots: sign up, logged in, log out |
 | 6 | **Own data only** *(only if you added user accounts)* | User B does not see the rows of user A |
 
-Put a test account (email and password) in the **course hand-in**, never in the repository.
+Send us the app password (and a test account, if you have user accounts) with your course hand-in, never in the repository.
 
 ### 7.3 Optional: one item from Thursday's class
 
-Only if 7.1 and 7.2 are done and work: real user accounts, a privacy page, or analytics. A broken extra feature counts against you; leave it out.
+Only if 7.1 and 7.2 are done and work: user accounts (each user signs up and sees only their own data; the shared password from Wednesday is the minimum), a privacy page, or analytics. A broken extra feature counts against you; leave it out.
 
 ### 7.4 Prepare the finals
 
@@ -342,7 +342,7 @@ Show:
 - the live app.
 
 - Use the **public URLs**, not a local copy.
-- Wake up your Render server before you start.
+- Wake up your Render server about 10 minutes before your demo (it needs about 1 minute to start).
 - **No new commits count.** The pinned commit of Friday 10:00 is your submission.
 
 ---
@@ -515,7 +515,7 @@ A starting template:
 - [ ] `diagrams/` has a **system diagram**, a **user-flow diagram** and a **sequence diagram**
 - [ ] `04_final/README.md` has the three statements: **what is clear**, **what is still unclear**, **what you would do next**
 - [ ] `04_final/PROOFS.md` has proofs 1 to 4 (and 5 to 6 if you added user accounts)
-- [ ] A test account is in the course hand-in, not in the repository
+- [ ] The app password (and a test account, if you have user accounts) is in the course hand-in, not in the repository
 - [ ] The root `README.md` links to the app, the server and the model
 - [ ] The **AI usage disclosure** is complete and honest
 - [ ] No secrets, data or model files are committed
@@ -524,7 +524,7 @@ A starting template:
 ### Friday
 
 - [ ] You tested the live URLs on the day of the finals
-- [ ] The Render server is awake before the demo
+- [ ] The Render server is awake (opened about 10 minutes before the demo)
 
 ---
 
