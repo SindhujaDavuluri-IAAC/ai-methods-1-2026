@@ -58,7 +58,7 @@ This assignment applies what we did in class:
 | **Mon 16 Nov** | `01_autoencoder/` | Dataset, notebook, three setups compared, ONNX model, model on Hugging Face, three slides | Tue 10:00 |
 | **Tue 17 Nov** | `02_model_server/` | Model server on Render, README with URL and API example, notebook that calls the API | Wed 10:00 |
 | **Wed 18 Nov** | `03_app/` | 2 user stories, 1 system diagram, 2–3 sequence diagrams; app on Cloudflare with password, calls your Render API, D1 (and R2) | Thu 10:00 |
-| **Thu 19 Nov** | `04_final/` | Final app, three diagrams, three statements, finals slides | **Fri 10:00: submission freeze** |
+| **Thu 19 Nov** | `04_final/` | Final app, three diagrams, three statements, `PROOFS.md`, finals talk | **Fri 10:00: submission freeze** |
 | **Fri 20 Nov** | none | Finals: 5–8 minute presentation with live demo | No new commits count |
 
 ⚠️ **Add a folder only after the folder of the day before is submitted.** Do not create `02_model_server/` on Monday.
@@ -292,9 +292,11 @@ Finish the app and explain it. Today you do **not** start new features that you 
 
 1. **The final app**, live at its public URL. It uses your own model, your model server and D1 (and R2 if used).
 2. **Three diagrams** in `04_final/diagrams/`:
-   - a **system diagram**: the parts of the system and how they connect (Hugging Face, Render, Cloudflare Pages, D1, R2);
+   - a **system diagram**: the parts of the system and how they connect (Hugging Face, Render, Cloudflare Worker or Pages, D1, R2);
    - a **user-flow diagram**: what a user does, step by step, and what the user sees;
    - a **sequence diagram**: who talks to whom, in order, for one request.
+
+   Every arrow in a diagram must exist in your code. An arrow without code, or code without an arrow, is drift: fix one of the two.
 3. **Three statements** in `04_final/README.md`, each a short paragraph:
    - **What is clear:** what works and what you understand well.
    - **What is still unclear:** what you do not understand, or what you did not test.
@@ -302,6 +304,29 @@ Finish the app and explain it. Today you do **not** start new features that you 
 4. **The final README** with: the use case, the live URLs (app, model server, model), the diagrams, the three statements, limitations.
 
 ⚠️ **Write the three statements yourselves.** We ask about them in the finals. Be honest: a clear "we do not know yet" is worth more than a vague claim.
+
+### 7.2 Proofs: `04_final/PROOFS.md`
+
+One file. For each proof, add a screenshot, or a command and its output.
+
+| # | Proof | What you show |
+|---|---|---|
+| 1 | **A database** | `wrangler d1 execute <DB> --remote --command "SELECT name FROM sqlite_master"` and its output |
+| 2 | **Locked on the server** | `curl -i <app-url>/api/<route>` without login returns **401**, not your data |
+| 3 | **Connected to Render** | One live result in the app, and the `MODEL_URL` line from your wrangler config |
+| 4 | **No secrets in git** | `.dev.vars` is in `.gitignore`, and your AI tool's answer to: "Check my repo and my Cloudflare account for secrets that are in code or in the git history." |
+| 5 | **Login works** *(only if you added user accounts)* | Screenshots: sign up, logged in, log out |
+| 6 | **Own data only** *(only if you added user accounts)* | User B does not see the rows of user A |
+
+Put a test account (email and password) in the **course hand-in**, never in the repository.
+
+### 7.3 Optional: one item from Thursday's class
+
+Only if 7.1 and 7.2 are done and work: real user accounts, a privacy page, or analytics. A broken extra feature counts against you; leave it out.
+
+### 7.4 Prepare the finals
+
+Prepare the 5 to 8 minute presentation with a live demo (see [section 8](#8-friday-the-live-demo)). Rehearse it once with a timer.
 
 ---
 
@@ -489,6 +514,8 @@ A starting template:
 - [ ] The final app is live and works end to end
 - [ ] `diagrams/` has a **system diagram**, a **user-flow diagram** and a **sequence diagram**
 - [ ] `04_final/README.md` has the three statements: **what is clear**, **what is still unclear**, **what you would do next**
+- [ ] `04_final/PROOFS.md` has proofs 1 to 4 (and 5 to 6 if you added user accounts)
+- [ ] A test account is in the course hand-in, not in the repository
 - [ ] The root `README.md` links to the app, the server and the model
 - [ ] The **AI usage disclosure** is complete and honest
 - [ ] No secrets, data or model files are committed
